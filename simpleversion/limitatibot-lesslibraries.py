@@ -153,7 +153,8 @@ Puoi usare /license per informazioni sulla licenza"""
     pickle.dump(banned,arcbanned) 
     file.close()
     
-MessageLoop(telepot.Bot(token),filtro).run_as_thread() #Riceve i messaggi
+bot = telepot.Bot(token)
+MessageLoop(bot,filtro).run_as_thread() #Riceve i messaggi
 while 1:
     antiflood = {} #Resetta il filtro antiflood ogni 5 secondi
     time.sleep(5)
