@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #Programmato da Davide Leone in Python 3 - Per contatti: leonedavide[at]protonmail.com
 #Distribuito sotto licenza GNU Affero GPL - Copyright 2018 Davide Leone
-#Versione 1.0 Limitati Bot LessL 24/04/18 
+#Versione 1.0.1 Limitati Bot LessL 24/04/18 
 
 """ Limitati Bot LessL is a simple bot for telegram that allows limitate users to send you a message.
     Copyright (C) 2018  Davide Leone
@@ -67,8 +67,10 @@ def filtro(msg): #Filtro contro flood ed utenti bannati
                     None #Errore noto. Il bot non riesce a contattare un utente da cui è stato bloccato
                 else: #Errore non noto.
                     print('⚠ ERRORE'+str(e)) #Stampa l'errore a schermo
-                    bot.sendMessage(amministratore,str(e)) #Invia l'errore all'amministratore del sistema. Eliminare le virgolette per attivarla
-                    scrivi(error_logging,(str(e)+'\n')) #Logging dell'errore su un file apposito
+                    bot.sendMessage(amministratore,str(e)) #Invia l'errore all'amministratore del sistema.
+                    file = open(error_loggin,'w')
+                    file.write(str(e)+'\n') #Logging dell'errore su un file apposito
+                    file.close()
                     
         elif antiflood[chat_id] == 6: #L'utente viene avvisato del filtro
             antiflood[chat_id] += 1 #Viene mandato un solo avviso
@@ -104,7 +106,7 @@ def gestisci(msg):
                 #Estrae il tipo di messaggio e agisce caso per caso
                 tipo = list(msg.keys())[-1] 
                 message = 'Messaggio inviato correttamente'
-                if tipo == 'text':
+                if tipo == 'text' or list(msg.keys())[-2] ==  'text':
                     bot.sendMessage(destinatario,msg['text'])
                 elif tipo == "sticker":
                     bot.sendSticker(destinatario,msg['sticker']['file_id'])
