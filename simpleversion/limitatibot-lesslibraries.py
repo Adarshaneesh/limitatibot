@@ -3,7 +3,7 @@
 #Distribuito sotto licenza GNU Affero GPL - Copyright 2018 Davide Leone
 #Versione 1.0.1 Limitati Bot LessL 24/04/18 
 
-""" Limitati Bot LessL is a simple bot for telegram that allows limitate users to send you a message.
+""" Limitati Bot Less is a simple bot for telegram that allows limitate users to send you a message.
     Copyright (C) 2018  Davide Leone
 
     This program is free software: you can redistribute it and/or modify
