@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #Programmato da Davide Leone in Python 3 - Per contatti: leonedavide[at]protonmail.com
 #Distribuito sotto licenza GNU Affero GPL - Copyright 2018 Davide Leone
-#Versione 1.0.1 Limitati Bot LessL 24/04/18 
+#Versione 1.0.22 Limitati Bot LessL 24/04/18 
 
 """ Limitati Bot Less is a simple bot for telegram that allows limitate users to send you a message.
     Copyright (C) 2018  Davide Leone
@@ -104,7 +104,7 @@ def gestisci(msg):
                 except:
                     did = None
                 #Estrae il tipo di messaggio e agisce caso per caso
-                tipo = list(msg.keys())[-1] 
+                tipo = list(msg.keys())[0] 
                 message = 'Messaggio inviato correttamente'
                 if tipo == 'text' or list(msg.keys())[-2] ==  'text':
                     bot.sendMessage(destinatario,msg['text'])
